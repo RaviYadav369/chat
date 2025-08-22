@@ -15,10 +15,10 @@ const Header = ({ isOpen, setIsOpen }: HeadersProps) => {
 
   return (
     <>
-      <div className="relative">
+      <div className="mb-5 mt-2">
         {isOpen && <LeftSidebar />}
 
-        <header className="absolute top-0 flex items-center justify-between w-full h-16 px-4 shrink-0 from-background/10 via-background/50">
+        <header className="absolute top-0 mt-2 mb-5 flex items-center justify-between w-full px-4 shrink-0 from-background/10 via-background/50">
           <div className=" flex items-center">
             <button
               onClick={handleToggle}
@@ -116,7 +116,7 @@ const Header = ({ isOpen, setIsOpen }: HeadersProps) => {
               <span className="hidden md:block ml-2 text-ellipsis whitespace-nowrap overflow-hidden font-normal text-sm text-zinc-600 !text-left dark:text-white">
                 New
               </span>
-              <span className="block md:hidden text-ellipsis whitespace-nowrap overflow-hidden font-normal text-sm text-zinc-600 !text-left dark:text-white">
+              <span className="block md:hidden text-ellipsis  overflow-hidden font-normal text-sm !text-left dark:text-white">
                 New
               </span>
             </button>

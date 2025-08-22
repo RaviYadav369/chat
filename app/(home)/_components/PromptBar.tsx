@@ -22,12 +22,18 @@ const PromptBar = ({ isOpen }: PromptProps) => {
     <>
       <div className="mx-auto w-full md:max-w-[60rem] px-4 mt-4">
         <div className="">
+          <div className="flex flex-col items-center justify-center my-5">
+            <h1 className="text-3xl my-2">Start Chat with your Friends</h1>
+            <p className="text-sm ">
+              Connect, chat, and share moments with friends!
+            </p>
+          </div>
           <div>
             <div className="relative z-10"> </div>
             <form className="rounded-md" onSubmit={(e) => onSubmit(e)}>
               <div className="relative w-full grow flex flex-col overflow-hidden shadow-lg border rounded-3xl blackbox-textarea-hover-color bg-background dark:bg-bgDarkSecondary">
                 <div className="flex-grow min-h-0">
-                  <div className="absolute left-0 top-4 md:left-4">
+                  <div className=" left-0 top-4 md:left-4">
                     <div className="flex gap-1">
                       <input
                         className="hidden"

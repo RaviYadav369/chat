@@ -10,10 +10,12 @@ const HomePage = () => {
   return (
     <>
       <div className="relative grid grid-cols-12">
-        <div className={}>
+        <div className={`${isOpen ? "col-span-2" : ""}`}>
           <Header isOpen={isOpen} setIsOpen={setIsOpen} />
         </div>
-        <div>
+        <div
+          className={`${isOpen ? "col-span-10 mt-10" : "col-span-12 mt-10"}`}
+        >
           <PromptBar isOpen={isOpen} />
         </div>
       </div>

@@ -1,7 +1,7 @@
 const LeftSidebar = () => {
   return (
     <>
-      <div className="flex flex-col h-full bg-background absolute dark:bg-bgDarkMain relative w-1/5 z-10">
+      <div className="flex flex-col h-full bg-background absolute dark:bg-bgDarkMain relative z-10">
         <div className="m-2 flex flex-col flex-1 space-y-2 overflow-y-auto mb-2">
           <button className="inline-flex items-center rounded-md text-sm font-medium ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input hover:text-accent-foreground py-2 h-10 w-full justify-start px-4 shadow-none transition-colors hover:bg-zinc-200/40 dark:bg-bgDarkMain dark:hover:bg-accent md:flex">
             <svg
