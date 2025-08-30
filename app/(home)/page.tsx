@@ -1,7 +1,8 @@
 "use client";
 import Header from "./_components/Header";
 import LeftSidebar from "./_components/LeftSidebar";
-import PromptBar from "./_components/PromptBar";
+import PromptBar from "./_components/PromptBar.jsx";
+import Chat from "./_components/Chat.jsx";
 import { useState } from "react";
 
 const HomePage = () => {

@@ -1,21 +1,41 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import io from "socket.io-client";
 
-interface PromptProps {
-  isOpen: boolean;
-}
-const PromptBar = ({ isOpen }: PromptProps) => {
+const PromptBar = ({ isOpen }) => {
   const [message, setMessage] = useState("");
 
-  const handleMessageChange = (e: any) => {
+  const handleMessageChange = (e) => {
     setMessage(e.target.value);
   };
 
-  const onSubmit = (e: any) => {
+  const onSubmit = (e) => {
     e.preventDefault();
     console.log("message is ", message);
 
     setMessage("");
+  };
+
+  const socket = io("wss://52.207.238.222:5000/socket.io", {
+    transports: ["websocket"], // Specify transports if needed
+    secure: true, // Ensure secure connection
+  });
+  useEffect(() => {
+    socket.on("connect", () => {
+      console.log("socket id", socket.id);
+    });
+
+    socket.on("resevent", (data) => {
+      console.log(`The data is comming from server ${data}`);
+    });
+
+    return () => {
+      socket.disconnect();
+    };
+  }, []);
+
+  const sendMessage = () => {
+    socket.emit("myevent", "Hello From client");
   };
 
   return (
@@ -80,7 +100,8 @@ const PromptBar = ({ isOpen }: PromptProps) => {
                   <div className="absolute right-2 gap-2 top-4 flex items-end">
                     <button
                       className="bg-primary text-primary-foreground inline-flex items-center justify-center text-sm font-medium shadow-none ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input hover:bg-accent hover:text-accent-foreground h-8 w-8 rounded-full p-0"
-                      type="submit"
+                      type="btn"
+                      onClick={sendMessage}
                       data-state="closed"
                       style={{ marginRight: "0.3em" }}
                     >
